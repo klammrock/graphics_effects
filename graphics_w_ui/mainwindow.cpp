@@ -58,8 +58,8 @@ void MainWindow::on_pushButton_2_clicked()
             if (ymax >= tmp.height())
                 ymax = tmp.height() - 1;
 
-            for (int xx = xmin; xx < xmax; ++xx)
-                for (int yy = ymin; yy < ymax; ++yy)
+            for (int xx = xmin; xx <= xmax; ++xx)
+                for (int yy = ymin; yy <= ymax; ++yy)
                 {
                     color = tmp.pixelColor(xx,yy);
                     r += color.red();
@@ -67,6 +67,7 @@ void MainWindow::on_pushButton_2_clicked()
                     b += color.blue();
                 }
             int count = (xmax - xmin + 1) * (ymax - ymin + 1);
+            qDebug() << "count:" << count;
             r /= count;
             g /= count;
             b /= count;
